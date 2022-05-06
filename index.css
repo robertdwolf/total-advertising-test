@@ -1,0 +1,746 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap");
+
+/*================================================================================
+CSS Reset
+================================================================================*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font: inherit;
+    font-size: 100%;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+    content: none;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+:focus {
+    outline: 0;
+}
+
+textarea {
+    overflow: auto;
+    resize: none;
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/*================================================================================
+Typography
+================================================================================*/
+/*
+100 Thin (Hairline)
+200 Extra Light (Ultra Light)
+300 Light
+400 Normal
+500 Medium
+600 Semi Bold (Demi Bold)
+700 Bold
+800 Extra Bold (Ultra Bold)
+900 Black (Heavy)
+*/
+@font-face {
+    font-family: "Karla";
+    src: url("/static/fonts/Karla-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Karla";
+    src: url("/static/fonts/Karla-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "DIN";
+    src: url("/static/fonts/DIN-2014.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("/static/fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+body {
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #454545;
+}
+
+p {
+    margin: 0 0 15px;
+}
+p:last-of-type {
+    margin-bottom: 0;
+}
+p:last-of-type + ul, p:last-of-type + ol {
+    margin-top: 15px;
+}
+
+ul {
+    list-style: disc;
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul,
+ol {
+    margin: 0 0 15px 24px;
+}
+ul:last-of-type,
+ol:last-of-type {
+    margin-bottom: 0;
+}
+ul:last-of-type + p,
+ol:last-of-type + p {
+    margin-top: 15px;
+}
+
+li {
+    margin: 0 0 5px;
+}
+
+strong, b {
+    font-weight: 700;
+}
+
+em, i {
+    font-style: italic;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/*================================================================================
+Structure
+================================================================================*/
+html,
+body {
+    background: #FFFFFF;
+}
+
+.container {
+    width: 100%;
+    max-width: calc(1170px + 15px * 2);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header .bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+header .contact {
+    font-size: 27px;
+    line-height: 1.1;
+}
+header .contact div:not(:last-child) {
+    margin: 0 0 10px;
+}
+header .contact a {
+    text-decoration: none;
+}
+header .contact .phone {
+    position: relative;
+}
+header .contact .phone:before {
+    content: "";
+    display: block;
+    width: 26px;
+    height: 26px;
+    background: url("./static/images/phone.svg") no-repeat 50% 50%/contain;
+    position: absolute;
+    left: -36px;
+    top: 3px;
+}
+header .contact .email {
+    position: relative;
+}
+header .contact .email:before {
+    content: "";
+    display: block;
+    width: 26px;
+    height: 26px;
+    background: url("./static/images/email.svg") no-repeat 50% 50%/contain;
+    position: absolute;
+    left: -36px;
+    top: 3px;
+}
+header .logo {
+    display: block;
+    width: 240px;
+    font-family: "DIN";
+    font-size: 49.5px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+}
+header .logo span {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 20.7px;
+    color: #B97F5C;
+}
+header nav {
+    background: #454545;
+    padding: 15px 0;
+}
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0 0 0 -30px;
+}
+header nav ul li {
+    margin: 0;
+    padding: 0 0 0 30px;
+}
+header nav ul a {
+    display: inline-block;
+    font-size: 27px;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+footer {
+    padding: 40px 0 60px;
+    background: #454545;
+    color: #FFFFFF;
+}
+footer .top {
+    display: flex;
+    justify-content: space-between;
+}
+footer .top nav {
+    padding: 0 0 0 30px;
+    text-align: right;
+}
+footer .top nav ul {
+    list-style: none;
+    margin: 0 0 0 -20px;
+}
+footer .top nav ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+footer .top nav ul a {
+    display: inline-block;
+    font-size: 27px;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+footer .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 40px 0 0;
+}
+footer .logo {
+    display: block;
+    width: 240px;
+    font-family: "DIN";
+    font-size: 49.5px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+}
+footer .logo span {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 20.7px;
+    color: #B97F5C;
+}
+footer .contact {
+    font-size: 27px;
+    line-height: 1.1;
+}
+footer .contact div:not(:last-child) {
+    margin: 0 0 10px;
+}
+footer .contact a {
+    text-decoration: none;
+}
+footer .contact .phone {
+    position: relative;
+}
+footer .contact .phone:before {
+    content: "";
+    display: block;
+    width: 26px;
+    height: 26px;
+    background: url("./static/images/phone.svg") no-repeat 50% 50%/contain;
+    position: absolute;
+    left: -36px;
+    top: 3px;
+}
+footer .contact .email {
+    position: relative;
+}
+footer .contact .email:before {
+    content: "";
+    display: block;
+    width: 26px;
+    height: 26px;
+    background: url("./static/images/email.svg") no-repeat 50% 50%/contain;
+    position: absolute;
+    left: -36px;
+    top: 3px;
+}
+footer .social {
+    display: flex;
+    flex-wrap: wrap;
+    width: 180px;
+    height: 120px;
+    margin: -20px 0 0 -20px;
+}
+footer .social a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: no-repeat 50% 50%/contain;
+    margin: 20px 0 0 20px;
+}
+footer .social a[aria-label=Facebook] {
+    background-image: url("./static/images/social-facebook.png");
+}
+footer .social a[aria-label=Instagram] {
+    background-image: url("./static/images/social-instagram.png");
+}
+footer .social a[aria-label=Twitter] {
+    background-image: url("./static/images/social-twitter.png");
+}
+footer .social a[aria-label=Linkedin] {
+    background-image: url("./static/images/social-linkedin.png");
+}
+footer .social a[aria-label=IMDB] {
+    background-image: url("./static/images/social-imdb.png");
+}
+footer .social a[aria-label=Vimeo] {
+    background-image: url("./static/images/social-vimeo.png");
+}
+
+section.hero {
+    display: flex;
+    align-items: flex-end;
+    height: 680px;
+    padding: 0 0 30px;
+    background: url("./static/images/hero.jpg") no-repeat 50% 50%/cover;
+    text-align: center;
+    color: #FFFFFF;
+}
+section.hero h1 {
+    font-family: "Montserrat";
+    font-size: 36px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+section.hero .text {
+    max-width: 800px;
+    margin: 15px auto 0;
+    font-size: 23.4px;
+}
+
+section.intro {
+    padding: 30px 0;
+}
+section.intro p {
+    font-size: 23.4px;
+}
+
+section.testimonials {
+    color: #FFFFFF;
+}
+section.testimonials .top {
+    background: #454545;
+    padding: 30px 0 0;
+}
+section.testimonials .top .testimonial-title {
+    margin: 0 0 15px;
+    font-family: "Montserrat";
+    font-size: 36px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-align: center;
+}
+section.testimonials .top .slider-wrap {
+    position: relative;
+}
+section.testimonials .top .slider-wrap:before, section.testimonials .top .slider-wrap:after {
+    display: block;
+    font-family: "Montserrat";
+    font-size: 90px;
+    line-height: 1;
+    color: #B97F5C;
+    position: absolute;
+    top: -35px;
+}
+section.testimonials .top .slider-wrap:before {
+    content: "“";
+    left: 0;
+}
+section.testimonials .top .slider-wrap:after {
+    content: "“";
+    right: 0;
+}
+section.testimonials .top .slider-wrap .tns-outer {
+    position: relative;
+}
+section.testimonials .top .slider-wrap .tns-outer .tns-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+section.testimonials .top .slider-wrap .tns-outer .tns-controls [data-controls=prev],
+section.testimonials .top .slider-wrap .tns-outer .tns-controls [data-controls=next] {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    border: 0;
+    border-radius: 0in;
+    pointer-events: auto;
+    font-family: "Karla";
+    font-size: 27px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+section.testimonials .top .slider {
+    position: relative;
+}
+section.testimonials .top .slider .item {
+    padding: 0 50px;
+    text-align: center;
+    transform: translate3d(0, 0, 0);
+}
+section.testimonials .top .slider .quote {
+    font-size: 23.4px;
+    font-style: italic;
+}
+section.testimonials .top .slider .cite {
+    margin: 15px 0 0;
+    font-size: 23.4px;
+}
+section.testimonials .top .grid-images {
+    display: flex;
+    margin: 30px 0 0;
+}
+section.testimonials .top .grid-images .column {
+    width: 33.3333%;
+}
+section.testimonials .top .grid-images .column .img {
+    height: 0fr;
+    padding-bottom: 75%;
+    background: no-repeat 50% 50%/cover;
+}
+section.testimonials .top .grid-images .column:nth-child(1) .img {
+    background-image: url("./static/images/office-1.jpg");
+}
+section.testimonials .top .grid-images .column:nth-child(2) .img {
+    background-image: url("./static/images/office-2.jpg");
+}
+section.testimonials .top .grid-images .column:nth-child(3) .img {
+    background-image: url("./static/images/office-3.jpg");
+}
+section.testimonials .bottom {
+    background: linear-gradient(0deg, #6b6b6b 0%, #919191 50%, #6b6b6b 100%);
+}
+section.testimonials .bottom .grid-info {
+    display: flex;
+}
+section.testimonials .bottom .grid-info .column {
+    width: 33.3333%;
+    padding: 30px 15px;
+}
+section.testimonials .bottom .grid-info .title {
+    max-width: 320px;
+    margin: 0 auto 15px;
+    font-family: "Montserrat";
+    font-size: 36px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-align: center;
+}
+section.testimonials .bottom .grid-info .text {
+    margin: 0 0 20px;
+    font-size: 23.4px;
+}
+section.testimonials .bottom .grid-info .text ul {
+    list-style: none;
+    margin: 0;
+}
+section.testimonials .bottom .grid-info .text ul li {
+    margin: 0 0 10px;
+}
+section.testimonials .bottom .grid-info .text ul li:last-child {
+    margin: 0;
+}
+section.testimonials .bottom .grid-info a {
+    display: table;
+    font-size: 18px;
+    line-height: 1.1;
+    text-decoration: none;
+}
+
+section.contact {
+    position: relative;
+    margin: 30px 0 60px;
+}
+section.contact .row {
+    display: flex;
+    margin: 0 0 0 -40px;
+}
+section.contact .row .col-1 {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    padding: 0 0 0 40px;
+}
+section.contact .row .col-2 {
+    width: 50%;
+    padding: 0 0 0 40px;
+}
+section.contact form .form-title {
+    margin: 0 0 20px;
+    font-family: "Montserrat";
+    font-size: 36px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-align: center;
+}
+section.contact form .input-row {
+    display: flex;
+    margin: 0 0 0 -30px;
+}
+section.contact form .input-row label {
+    width: 50%;
+    padding: 0 0 0 30px;
+}
+section.contact form label {
+    display: block;
+    margin: 0 0 10px;
+}
+section.contact form label span {
+    display: block;
+    font-size: 23.4px;
+}
+section.contact form input[type=text],
+section.contact form input[type=email] {
+    display: block;
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid #454545;
+    border-radius: 0;
+    font-size: 23.4px;
+    line-height: 1.2;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+section.contact form textarea {
+    display: block;
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid #454545;
+    border-radius: 0;
+    font-size: 23.4px;
+    line-height: 1.2;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+section.contact form label.checkbox {
+    margin: 30px 0 30px 30px;
+    font-size: 23.4px;
+    line-height: 1.2;
+}
+section.contact form label.checkbox input {
+    margin: 0 10px 0 0;
+}
+section.contact form .btn {
+    width: 260px;
+}
+section.contact .quote {
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    padding: 25px 0 25px calc(50% + 30px);
+    background: #B97F5C;
+}
+section.contact .quote .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: url("./static/images/expert.jpg") no-repeat 50% 50%/cover;
+}
+section.contact .quote .info {
+    color: #FFFFFF;
+}
+section.contact .quote .info .text {
+    font-family: "Montserrat";
+    font-size: 25.2px;
+    line-height: 1.3;
+}
+section.contact .quote .info .cite {
+    margin: 20px 0 0;
+    font-size: 23.4px;
+}
+section.contact:before {
+    content: "";
+    display: block;
+    width: calc(50% - 30px);
+    height: 100%;
+    background: #B97F5C;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+section.clients {
+    margin: 60px 0;
+}
+section.clients .clients-title {
+    margin: 0 0 30px;
+    font-family: "Montserrat";
+    font-size: 36px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-align: center;
+}
+section.clients .slider .item {
+    transform: translate3d(0, 0, 0);
+}
+section.clients .slider .img {
+    max-width: 250px;
+    height: 0;
+    margin: 0 auto;
+    padding-bottom: 30%;
+    background: no-repeat 50% 50%/contain;
+}
+section.clients .slider .logo-1 {
+    background-image: url("./static/images/logo-1.png");
+}
+section.clients .slider .logo-2 {
+    background-image: url("./static/images/logo-2.png");
+}
+section.clients .slider .logo-3 {
+    background-image: url("./static/images/logo-3.png");
+}
+section.clients .tns-outer {
+    position: relative;
+}
+section.clients .tns-outer .tns-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+section.clients .tns-outer .tns-controls [data-controls=prev],
+section.clients .tns-outer .tns-controls [data-controls=next] {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    border: 0;
+    border-radius: 0in;
+    pointer-events: auto;
+    font-family: "Karla";
+    font-size: 27px;
+    line-height: 1.2;
+    color: #454545;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.btn {
+    display: block;
+    width: 390px;
+    margin: 15px auto 0;
+    padding: 15px;
+    background: #B97F5C;
+    border: 0;
+    border-radius: 10px;
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    font-size: 27px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
