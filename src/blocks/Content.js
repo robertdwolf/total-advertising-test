@@ -138,20 +138,52 @@ const HeadlineLinks = () => {
         </section>
 
         <section class="clients">
-            <div class="clients-title">Just A Few Clients I've Worked With</div>
+            <div class="container">
+                <div class="clients-title">Just A Few Clients I've Worked With</div>
+                <div class="slider">
+                    <div class="item">
+                        <div class="img logo-1"></div>
+                    </div>
+                    <div class="item">
+                        <div class="img logo-2"></div>
+                    </div>
+                    <div class="item">
+                        <div class="img logo-3"></div>
+                    </div>
+                    <div class="item">
+                        <div class="img logo-1"></div>
+                    </div>
+                    <div class="item">
+                        <div class="img logo-2"></div>
+                    </div>
+                    <div class="item">
+                        <div class="img logo-3"></div>
+                    </div>
+                </div>
+            </div>
         </section>
     `
 
     document.querySelector('main').insertAdjacentHTML('beforeend', block.strings[0])
 
-    const slider = tns({
+    const slider1 = tns({
         container: 'section.testimonials .slider',
         items: 1,
         controls: true,
         nav: false,
         mouseDrag: true,
         controlsText: ['<','>'],
-    });
+    })
+
+    const slider2 = tns({
+        container: 'section.clients .slider',
+        items: 3,
+        gutter: 30,
+        controls: true,
+        nav: false,
+        mouseDrag: true,
+        controlsText: ['<','>'],
+    })
 }
 
 export default HeadlineLinks
